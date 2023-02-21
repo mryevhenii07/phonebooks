@@ -16,10 +16,29 @@ const App: FC = () => {
   const removeTodo = (id: number) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
+
+  const toggleCompleted = (id: number) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, completed: !todo.completed };
+        }
+        return { ...todo };
+      })
+    );
+  };
   return (
     <div className="App">
       <Form onSubmit={onSubmit} todos={todos} />
-      <List todos={todos} removeTodo={removeTodo} />
+      {todos.length > 0 ? (
+        <List
+          todos={todos}
+          removeTodo={removeTodo}
+          toggleCompleted={toggleCompleted}
+        />
+      ) : (
+        <h3> Please add a task </h3>
+      )}
     </div>
   );
 };
