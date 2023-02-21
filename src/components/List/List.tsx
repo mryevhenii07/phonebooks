@@ -5,6 +5,7 @@ interface PropsList {
   todos: ITodo[];
   removeTodo: (id: number) => void;
   toggleCompleted: (id: number) => void;
+  // onSubmit: (date: any) => void;
 }
 
 const List: FC<PropsList> = ({ todos, removeTodo, toggleCompleted }) => {

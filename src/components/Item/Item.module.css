@@ -34,3 +34,7 @@
   width: 18px;
   cursor: pointer;
 }
+
+.active {
+  color: green;
+}

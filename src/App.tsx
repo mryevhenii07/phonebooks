@@ -29,7 +29,9 @@ const App: FC = () => {
   };
   return (
     <div className="App">
-      <Form onSubmit={onSubmit} todos={todos} />
+      <Form onSubmit={onSubmit} />
+
+      {todos.length > 0 ? <h2>Contacts: {todos.length}</h2> : null}
       {todos.length > 0 ? (
         <List
           todos={todos}

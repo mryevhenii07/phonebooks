@@ -1,6 +1,6 @@
 export interface ITodo {
   id: number;
   name: string;
-  phone: number;
+  phone: string;
   completed: boolean;
 }
