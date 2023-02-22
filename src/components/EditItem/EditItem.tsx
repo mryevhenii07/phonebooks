@@ -5,6 +5,8 @@ import TextField from "@mui/material/TextField";
 
 import { ITodo } from "../../interface/todos";
 import s from "../Form/Form.module.css";
+import { useAppDispatch } from "../../store/hooks";
+import { addTodo } from "../../store/todoSlice/todoSlice";
 
 interface PropsEdit {
   data: ITodo[];
@@ -12,7 +14,7 @@ interface PropsEdit {
 }
 
 const Form: FC<PropsEdit> = ({ data }) => {
-  const [editPixxa, setEditPizza] = useState(data);
+  const dispatch = useAppDispatch();
   console.log(data);
 
   const [editName, setEditName] = useState(data[0].name);
@@ -20,6 +22,7 @@ const Form: FC<PropsEdit> = ({ data }) => {
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
+    dispatch(addTodo());
     // setEditPizza([...editPixxa,{
     //     editName,
     //     editPhone,
